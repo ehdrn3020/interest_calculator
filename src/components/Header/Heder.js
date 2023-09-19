@@ -6,7 +6,7 @@ const Header = () => {
   return (
     <header className="header">
       <img src={logo} alt="logo" />
-      <h1>Investment Calculator</h1>
+      <h1>이자 계산기</h1>
     </header>
   );
 };

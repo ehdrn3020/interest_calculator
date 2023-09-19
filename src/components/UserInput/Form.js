@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import "./Form.css";
 
-const Form = () => {
+const Form = (props) => {
   const initialUserIput = {
-    "current-savings": 10000,
-    "yearly-contribution": 1200,
+    "current-savings": 1000000,
+    "yearly-contribution": 1200000,
     "expected-return": 7,
     duration: 10,
   };
@@ -13,7 +13,7 @@ const Form = () => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    console.log("SUBMIT");
+    props.onCalculate(userInput);
   };
 
   const resetHandler = () => {
@@ -34,7 +34,7 @@ const Form = () => {
     <form onSubmit={submitHandler} className="form">
       <div className="input-group">
         <p>
-          <label htmlFor="current-savings">Current Savings ($)</label>
+          <label htmlFor="current-savings">현재 저축금액 (원)</label>
           <input
             onChange={(event) =>
               inputChangeHandler("current-savings", event.target.value)
@@ -45,7 +45,7 @@ const Form = () => {
           />
         </p>
         <p>
-          <label htmlFor="yearly-contribution">Yearly Savings ($)</label>
+          <label htmlFor="yearly-contribution">매년 저축할 금액 (원)</label>
           <input
             onChange={(event) =>
               inputChangeHandler("yearly-contribution", event.target.value)
@@ -59,7 +59,7 @@ const Form = () => {
       <div className="input-group">
         <p>
           <label htmlFor="expected-return">
-            Expected Interest (%, per year)
+            이자율 (%, 연간)
           </label>
           <input
             onChange={(event) =>
@@ -71,7 +71,7 @@ const Form = () => {
           />
         </p>
         <p>
-          <label htmlFor="duration">Investment Duration (years)</label>
+          <label htmlFor="duration">저축 기간 (년)</label>
           <input
             onChange={(event) =>
               inputChangeHandler("duration", event.target.value)
@@ -84,10 +84,10 @@ const Form = () => {
       </div>
       <p className="actions">
         <button onClick={resetHandler} type="reset" className="buttonAlt">
-          Reset
+          초기화
         </button>
         <button type="submit" className="button">
-          Calculate
+          계산하기
         </button>
       </p>
     </form>
