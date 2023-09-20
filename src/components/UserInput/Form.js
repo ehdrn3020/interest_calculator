@@ -25,7 +25,7 @@ const Form = (props) => {
     setUserInput((prevInput) => {
       return {
         ...prevInput,
-        [input]: value,
+        [input]: Number(value),
       };
     });
   };

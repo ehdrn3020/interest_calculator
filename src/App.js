@@ -5,7 +5,7 @@ import Table from './components/Tables/Table';
 
 function App() {
   const [results, setResults] = useState(null);
-
+  const [initialInvestment, setInitialInvestment] = useState(0);
   // From Submit 시 실행
   const calculateHandler = (userInput) => {    
     const yearlyData = []; // per-year results
@@ -27,9 +27,9 @@ function App() {
       });
     }
 
-    // do something with yearlyData ...
+    // 테이블을 위한 state에 저장
     setResults(yearlyData);
-    console.log(results);
+    setInitialInvestment(userInput['current-savings']);
   };
 
   return (
@@ -37,10 +37,8 @@ function App() {
       <Header />
       
       <Form onCalculate={calculateHandler} />
-      {/* Todo: Show below table conditionally (only once result data is available) */}
-      {/* Show fallback text if no data is available */}
-      <Table />
-      
+      {!results && <p>데이터가 없습니다.</p>}
+      {results && <Table data={results} initialInvestment={initialInvestment} />}
     </div>
   );
 }
