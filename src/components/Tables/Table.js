@@ -1,5 +1,5 @@
 import React from "react";
-import "./Tables.css";
+import classes from "./Tables.module.css";
 
 const formatter = new Intl.NumberFormat('ko', {
   style: 'currency',
@@ -10,7 +10,7 @@ const formatter = new Intl.NumberFormat('ko', {
 const Table = (props) => {
 
   return (
-    <table className="result">
+    <table className={classes.result}>
       <thead>
         <tr>
           <th>연도</th>

@@ -37,7 +37,7 @@ function App() {
       <Header />
       
       <Form onCalculate={calculateHandler} />
-      {!results && <p>데이터가 없습니다.</p>}
+      {!results && <p style={{textAlign:'center'}}>데이터가 없습니다.</p>}
       {results && <Table data={results} initialInvestment={initialInvestment} />}
     </div>
   );

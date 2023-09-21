@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Form.css";
+import classes from "./Form.module.css";
 
 const Form = (props) => {
   const initialUserIput = {
@@ -31,8 +31,8 @@ const Form = (props) => {
   };
 
   return (
-    <form onSubmit={submitHandler} className="form">
-      <div className="input-group">
+    <form onSubmit={submitHandler} className={classes.form}>
+      <div className={classes['input-group']}>
         <p>
           <label htmlFor="current-savings">현재 저축금액 (원)</label>
           <input
@@ -56,7 +56,7 @@ const Form = (props) => {
           />
         </p>
       </div>
-      <div className="input-group">
+      <div className={classes['input-group']}>
         <p>
           <label htmlFor="expected-return">
             이자율 (%, 연간)
@@ -82,11 +82,11 @@ const Form = (props) => {
           />
         </p>
       </div>
-      <p className="actions">
-        <button onClick={resetHandler} type="reset" className="buttonAlt">
+      <p className={classes.actions}>
+        <button onClick={resetHandler} type="reset" className={classes.buttonAlt}>
           초기화
         </button>
-        <button type="submit" className="button">
+        <button type="submit" className={classes.button}>
           계산하기
         </button>
       </p>
